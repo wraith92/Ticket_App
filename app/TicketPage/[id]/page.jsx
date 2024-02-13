@@ -2,8 +2,8 @@ import EditTicketForm from "@/app/(components)/EditTicketForm";
 
 const getTicketById = async (id) => {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Get API base URL from environment variable
-    const res = await fetch(`https://ticket-app-dahmens-projects.vercel.app/api/Tickets/${id}`, { 
+     // Get API base URL from environment variable
+    const res = await fetch(`https://ticket-app-peach.vercel.app/api/Tickets/${id}`, { 
        cache: "no-store",
     });
 
