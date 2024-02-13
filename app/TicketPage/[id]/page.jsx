@@ -1,10 +1,14 @@
 import EditTicketForm from "@/app/(components)/EditTicketForm";
 
 const getTicketById = async (id) => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+  if (!BASE_URL) {
+    console.error("Base API URL not found in environment variables.");
+    process.exit(1); // Exit the application if Base API URL is not set
+  }
   try {
-     // Get API base URL from environment variable
-    const res = await fetch(`https://ticket-app-iota-ashen.vercel.app/api/Tickets/${id}`, { 
-       cache: "no-store",
+    const res = await fetch(`${BASE_URL}/api/Tickets/${id}`, {
+      cache: "no-store",
     });
 
     if (!res.ok) {

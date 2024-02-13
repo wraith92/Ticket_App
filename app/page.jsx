@@ -1,10 +1,15 @@
+"use client";
 import React from "react";
 import TicketCard from "./(components)/TicketCard";
 
 const getTickets = async () => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+  if (!BASE_URL) {
+    console.error("Base API URL not found in environment variables.");
+    process.exit(1); // Exit the application if Base API URL is not set
+  }
   try {
-    
-    const res = await fetch("https://ticket-app-iota-ashen.vercel.app/api/Tickets", {
+    const res = await fetch(`${BASE_URL}/api/Tickets`, {
       cache: "no-store",
     });
 

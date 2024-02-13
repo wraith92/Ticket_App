@@ -6,10 +6,14 @@ import { useRouter } from "next/navigation";
 
 const DeleteBlock = ({ id }) => {
   const router = useRouter();
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+  if (!BASE_URL) {
+    console.error("Base API URL not found in environment variables.");
+    process.exit(1); // Exit the application if Base API URL is not set
+  }
 
   const deleteTicket = async () => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const res = await fetch(`https://ticket-app-iota-ashen.vercel.app/api/Tickets/${id}`, {
+    const res = await fetch(`${BASE_URL}/api/Tickets/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {
