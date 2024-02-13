@@ -1,9 +1,9 @@
-"use client";
+
 import React from "react";
 import TicketCard from "./(components)/TicketCard";
-
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const getTickets = async () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+
   if (!BASE_URL) {
     console.error("Base API URL not found in environment variables.");
     process.exit(1); // Exit the application if Base API URL is not set
@@ -24,6 +24,9 @@ const getTickets = async () => {
 };
 
 const Dashboard = async () => {
+  if (!BASE_URL) {
+    return null;
+  }
   const data = await getTickets();
 
   // Make sure we have tickets needed for production build.
