@@ -9,7 +9,7 @@ const DeleteBlock = ({ id }) => {
 
   const deleteTicket = async () => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const res = await fetch(`https://ticket-app-peach.vercel.app/api/Tickets/${id}`, {
+    const res = await fetch(`https://ticket-app-iota-ashen.vercel.app/api/Tickets/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {

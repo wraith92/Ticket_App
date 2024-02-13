@@ -3,7 +3,7 @@ import EditTicketForm from "@/app/(components)/EditTicketForm";
 const getTicketById = async (id) => {
   try {
      // Get API base URL from environment variable
-    const res = await fetch(`https://ticket-app-peach.vercel.app/api/Tickets/${id}`, { 
+    const res = await fetch(`https://ticket-app-iota-ashen.vercel.app/api/Tickets/${id}`, { 
        cache: "no-store",
     });
 
